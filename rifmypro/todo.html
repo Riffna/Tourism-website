@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <div id="vm">
+        <input id="input" type="text" v-model="newitem" />
+        <button v-on:click="change">Change</button>
+        <button v-on:click="del">Delete</button>
+        <ul>
+           <li v-for="list in lists">{{list}}</li> 
+        </ul>
+      </div>
+      
+      <script>
+        var app = new Vue({
+          el: "#vm",
+          data: {
+            lists: [],
+          },
+          methods: {
+            change: function () {
+              this.lists.push(this.newitem);
+              this.newitem = localStorage.newitem;
+            },
+            del: function () {
+              this.lists.pop(this.newitem);
+            },
+          },
+        });
+      </script>
+      </div>
+</body>
+</html>
